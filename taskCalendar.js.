@@ -1,0 +1,35 @@
+const readline = require('readline');
+
+// Create interface for input
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+// Function to get the task for a specific day
+function getTaskForDay(day) {
+    switch (day.toLowerCase()) {
+        case 'monday':
+            return "Finish your assignments.";
+        case 'tuesday':
+            return "Attend your team meeting.";
+        case 'wednesday':
+            return "Work on the project presentation.";
+        case 'thursday':
+            return "Review your progress.";
+        case 'friday':
+            return "Submit weekly reports.";
+        case 'saturday':
+            return "Relax and recharge.";
+        case 'sunday':
+            return "Plan for the upcoming week.";
+        default:
+            return "Invalid day entered. Please enter a valid day of the week.";
+    }
+}
+
+// Prompt the user for the day of the week
+rl.question("Enter a day of the week: ", (input) => {
+    console.log(`Your task for ${input} is: ${getTaskForDay(input)}`);
+    rl.close();
+});
